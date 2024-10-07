@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4acsq87rc0ej"]
+[gd_scene load_steps=9 format=3 uid="uid://c4acsq87rc0ej"]
 
 [ext_resource type="Texture2D" uid="uid://cihn53tjb5npy" path="res://assets/sprites/tank_body.png" id="1_3n3xp"]
+[ext_resource type="Script" path="res://scenes/tank.gd" id="1_ws2qd"]
 [ext_resource type="PackedScene" uid="uid://c6q5dogvxh8u" path="res://scenes/weapon.tscn" id="2_83q4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjan2"]
@@ -61,7 +62,9 @@ _data = {
 "move": SubResource("Animation_5x3s3")
 }
 
-[node name="Tank" type="CharacterBody2D"]
+[node name="Tank" type="CharacterBody2D" node_paths=PackedStringArray("weapon")]
+script = ExtResource("1_ws2qd")
+weapon = NodePath("Weapon")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_3n3xp")
